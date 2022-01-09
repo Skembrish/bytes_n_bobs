@@ -1,2 +1,2 @@
-# bit_n_bobs
-Just general stuff really
+# bytes_n_bobs
+Just a collection of random code snipits ... enjoy
