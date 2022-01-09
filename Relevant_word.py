@@ -1,17 +1,31 @@
-def relevant_words(links, manual='yes', html_conversion='html.parser', eng_selection='nltk', documentation='no'):
+def relevant_words(links, manual='yes', html_conversion='html.parser', eng_selection='nltk'):
     
-    #doucmentation to describe usage
-    if documentation == 'yes':
-        return(print("relevant_words(links, manual='yes', html_conversion='html.parser', eng_selection='nltk', documentation='no')", \
-                     "\n\n links (array): Documents to be scanned and to find relevant words of.", \
-                     "\n\n manual (str): {'yes','no'} Determines the term frequency inverse document frequency version to be used. Manually written by me, other alternative by Sklearn.", \
-                     "\n\n html_conversion (str): {'html.parser', 'lxml', 'lxml-xml', 'xml', 'html5lib'} Determines method of html parser for bs4 from BeautifulSoup. ref https://www.crummy.com/software/BeautifulSoup/bs4/doc/", \
-                     "\n\n eng_selection (str): {'nltk', 'enchant', 'both'} Determines the method for filtering words.",\
-                     "\n\t nltk - Uses wordnet database of English. ref https://wordnet.princeton.edu/",\
-                     "\n\t enchant - Uses spellchecking library by pyenchant. ref https://pypi.org/project/pyenchant/",\
-                     "\n\t both - Uses both wordnet and enchant.",\
-                     "\n\n documentation (str): {'yes','no'} Used to display documentation."))
+    '''
+    Returns the most relevant english words from each website, when provided with a list of websites.
+    *needs multiple websites or will just output the most frequent english words*
     
+    Parameters
+    ----------
+    
+    links : list
+        Website to find most relevant words for.
+    manual : str {'yes','no'}
+        Determines if code uses my or Sklearn implementation of Term Frequency Inverse Document Frequency and english word filtering.
+    html_conversion : str {'html.parser', 'lxml', 'lxml-xml', 'xml', 'html5lib'}
+        Determines method of html parser for bs4 from BeautifulSoup. ref https://www.crummy.com/software/BeautifulSoup/bs4/doc/
+    eng_selection : str {'nltk', 'enchant', 'both'}
+        Determines the method for filtering words;
+            nltk - Uses wordnet database of English. ref https://wordnet.princeton.edu
+            enchant - Uses pyenchant spellchecking library. ref https://pypi.org/project/pyenchant/
+            both - Makes sure word is accepted by wordnet and enchant.
+            
+    Output
+    ----------
+    
+    Json file titled 'relevant_words.json' returned to current directory.
+    
+    '''
+
     #imports
     import numpy as np
     import json
