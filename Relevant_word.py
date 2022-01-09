@@ -59,7 +59,7 @@ def relevant_words(links, manual='yes', html_conversion='html.parser', eng_selec
         else:
             dictionary[val] = 1
             
-    #function extracts         
+    #frequency of all english words that occur in string       
     def words_list(text, eng_selection):
         list_text = text.split(' ')
 
