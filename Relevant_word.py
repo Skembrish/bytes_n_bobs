@@ -154,7 +154,7 @@ def relevant_words(links, manual='yes', html_conversion='html.parser', eng_selec
 
         out = {} #output dictionary
 
-        #Attapted implemtation from https://stackoverflow.com/questions/34232190/scikit-learn-tfidfvectorizer-how-to-get-top-n-terms-with-highest-tf-idf-score
+        #Adapted implemtation from https://stackoverflow.com/questions/34232190/scikit-learn-tfidfvectorizer-how-to-get-top-n-terms-with-highest-tf-idf-score
         for i in range(len(links)):
             tfidf = tfidf_vectorizer.transform(documents[i].split(' '))
             importance = np.argsort(np.asarray(tfidf.sum(axis=0)).ravel())[::-1]
